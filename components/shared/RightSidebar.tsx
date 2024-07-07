@@ -1,8 +1,8 @@
-import { PackageX } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import React from "react";
+import RenderTag from "./RenderTag";
 const hotQuestions = [
   {
     _id: 1,
@@ -25,6 +25,15 @@ const hotQuestions = [
     _id: 5,
     title: "Async/Await Function Not Handling Errors Properly",
   },
+];
+
+const popularTags = [
+  { _id: 1, name: "javascript", totalQuestions: 5 },
+  { _id: 2, name: "Nextjs", totalQuestions: 5 },
+  { _id: 3, name: "test", totalQuestions: 9 },
+  { _id: 4, name: "javascript", totalQuestions: 7 },
+  { _id: 5, name: "React", totalQuestions: 2 },
+  { _id: 6, name: "CSS", totalQuestions: 10 },
 ];
 
 const RightSidebar = () => {
@@ -55,7 +64,22 @@ const RightSidebar = () => {
           ))}
         </div>
       </div>
-      <div className="mt-16"> test 2</div>
+      <div className="mt-16">
+        <h3 className="h3-bold text-dark200_light900 font-inter ">
+          Popular Tags
+        </h3>
+        <div className="mt-7 flex-col gap-4">
+          {popularTags.map((tag) => (
+            <RenderTag
+              key={tag._id}
+              _id={tag._id}
+              name={tag.name}
+              totalQuestions={tag.totalQuestions}
+              showcount
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
