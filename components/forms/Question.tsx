@@ -18,6 +18,7 @@ import { Button } from "../ui/button";
 import { QuestionsSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
+import { createQuestion } from "@/lib/actions/question.action";
 
 const type: any = "create";
 
@@ -45,6 +46,7 @@ const Question = ({ mongoUserId }: Props) => {
 
     try {
       // make an async call to your API -> create a question
+      await createQuestion({});
       // contain all form data
     } catch (error) {
     } finally {
