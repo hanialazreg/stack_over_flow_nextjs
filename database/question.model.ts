@@ -10,7 +10,7 @@ export interface IQuestion extends Document {
   dowvotes: Schema.Types.ObjectId[];
   author: Schema.Types.ObjectId;
   answears: Schema.Types.ObjectId[];
-  ceratedAt: Date;
+  createdAt: Date;
 }
 
 // 2.create the Schema
