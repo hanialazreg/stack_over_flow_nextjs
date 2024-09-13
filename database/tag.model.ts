@@ -1,7 +1,4 @@
-import { Description } from "@radix-ui/react-dialog";
-import mongoose, { model, models, Schema, Document } from "mongoose";
-import { title } from "process";
-import Question from "./question.model";
+import { model, models, Schema, Document } from "mongoose";
 
 export interface ITag extends Document {
   name: string;
