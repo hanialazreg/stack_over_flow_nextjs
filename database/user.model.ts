@@ -12,7 +12,6 @@ export interface IUser extends Document {
   location?: string;
   portfoliowebsite?: string;
   reputation?: number;
-  //   posts: Schema.Types.ObjectId[];
   saved: Schema.Types.ObjectId[];
   joinedAt: Date;
 }
@@ -34,5 +33,5 @@ const UserSchema = new Schema({
 });
 
 // 3. convert the Schema to a model
-const User = models.User || model("User ", UserSchema);
+const User = models.User || model("User", UserSchema);
 export default User;
