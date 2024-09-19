@@ -19,7 +19,7 @@ import { QuestionsSchema } from "@/lib/validations";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 import { createQuestion } from "@/lib/actions/question.action";
-import { auth } from "@clerk/nextjs";
+
 import { useRouter, usePathname } from "next/navigation";
 
 const type: any = "create";
@@ -51,11 +51,11 @@ const Question = ({ mongoUserId }: Props) => {
     try {
       // make an async call to your API -> create a question
       await createQuestion({
-        // contain all form data
         title: values.title,
         content: values.explanation,
         tags: values.tags,
-        auth: JSON.parse(mongoUserId),
+        author: JSON.parse(mongoUserId),
+        path: pathname,
       });
       // navigate to home page
       router.push("/");

@@ -6,44 +6,47 @@ import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
 import NoResult from "@/components/shared/NoResult";
 import QuestionCard from "@/components/cards/QuestionCard";
+import { getQuestion } from "@/lib/actions/question.action";
 
-export default function Home() {
-  const questions = [
-    {
-      _id: "1",
-      title: "Cascading delete in SQLAlchemy?",
-      tags: [
-        { _id: "1", name: "Python" },
-        { _id: "2", name: "React" },
-      ],
-      author: {
-        _id: "1",
-        name: "Joe Dow",
-        picture: "https://example.com/picture1.jpg",
-      },
-      upvotes: 20,
-      views: 100,
-      answers: [],
-      createdAt: new Date("2021-07-11T12:00:00.000Z"),
-    },
-    {
-      _id: "2",
-      title: "How to center a div?",
-      tags: [
-        { _id: "1", name: "Python" },
-        { _id: "2", name: "React" },
-      ],
-      author: {
-        _id: "1",
-        name: "Joe Dow",
-        picture: "https://example.com/picture1.jpg",
-      },
-      upvotes: 20,
-      views: 100,
-      answers: [],
-      createdAt: new Date("2021-07-11T12:00:00.000Z"),
-    },
-  ];
+export default async function Home() {
+  const result = await getQuestion({});
+  console.log(result.questions);
+  // const questions = [
+  //   {
+  //     _id: "1",
+  //     title: "Cascading delete in SQLAlchemy?",
+  //     tags: [
+  //       { _id: "1", name: "Python" },
+  //       { _id: "2", name: "React" },
+  //     ],
+  //     author: {
+  //       _id: "1",
+  //       name: "Joe Dow",
+  //       picture: "https://example.com/picture1.jpg",
+  //     },
+  //     upvotes: 20,
+  //     views: 100,
+  //     answers: [],
+  //     createdAt: new Date("2021-07-11T12:00:00.000Z"),
+  //   },
+  //   {
+  //     _id: "2",
+  //     title: "How to center a div?",
+  //     tags: [
+  //       { _id: "1", name: "Python" },
+  //       { _id: "2", name: "React" },
+  //     ],
+  //     author: {
+  //       _id: "1",
+  //       name: "Joe Dow",
+  //       picture: "https://example.com/picture1.jpg",
+  //     },
+  //     upvotes: 20,
+  //     views: 100,
+  //     answers: [],
+  //     createdAt: new Date("2021-07-11T12:00:00.000Z"),
+  //   },
+  // ];
 
   return (
     <>
@@ -72,8 +75,8 @@ export default function Home() {
       </div>
       <HomeFilters />
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.length > 0 ? (
-          questions.map((question) => (
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => (
             <QuestionCard
               key={question._id}
               _id={question._id}
