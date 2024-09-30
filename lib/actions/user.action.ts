@@ -27,10 +27,12 @@ export async function createUser(userData: CreateUserParams) {
   try {
     connectToDatabase();
 
-    const newUser = await User.create({ userData });
+    const newUser = await User.create(userData);
+
     return newUser;
   } catch (error) {
-    console.log("can't create user ");
+    console.log(error);
+    throw error;
   }
 }
 export async function updateUser(params: UpdateUserParams) {
