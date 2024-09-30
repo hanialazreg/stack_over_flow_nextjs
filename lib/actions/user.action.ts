@@ -29,7 +29,9 @@ export async function createUser(userData: CreateUserParams) {
 
     const newUser = await User.create({ userData });
     return newUser;
-  } catch (error) {}
+  } catch (error) {
+    console.log("can't create user ");
+  }
 }
 export async function updateUser(params: UpdateUserParams) {
   try {
