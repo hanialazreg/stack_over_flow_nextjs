@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.0.0",
+    "@clerk/nextjs": "^5.7.1",
     "@fontsource/space-grotesk": "^5.0.15",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-dialog": "^1.0.5",
