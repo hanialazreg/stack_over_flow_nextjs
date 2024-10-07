@@ -1,24 +1,28 @@
 import Question from "@/components/forms/Question";
-import { getUserById } from "@/lib/actions/user.action";
-// import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import React from "react";
+import { getUserById } from "@/lib/actions/user.action";
+import { auth } from "@clerk/nextjs/server";
 
-const page = async () => {
-  // const { userId } = auth();
-  const userId = "66e5b91b1237b22bb5943d18";
-  if (!userId) redirect("/sign-in");
+const AskQuestion = async () => {
+  const { userId } = auth();
+
+  console.log(userId);
+  if (!userId) {
+    redirect("/sign-in");
+  }
+  // const userId = "user_2mzXdqozt4Bhj5rrfMsqsPjchV4";
+
   const mongoUser = await getUserById({ userId });
-  console.log(mongoUser);
+  const mongoUserId = mongoUser?._id ? mongoUser._id.toString() : "";
 
   return (
     <div>
-      <h1 className="h1-bold text-dark100_light900 ">Ask a question </h1>
-      <div className="mt-9 ">
-        <Question mongoUserId={JSON.stringify(mongoUser._id)} />
+      <h1 className="h1-bold text-dark100_light900">Ask a Question</h1>
+      <div className="mt-9">
+        <Question mongoUserId={mongoUserId} />
       </div>
     </div>
   );
 };
 
-export default page;
+export default AskQuestion;

@@ -10,7 +10,7 @@ import { getQuestion } from "@/lib/actions/question.action";
 
 export default async function Home() {
   const result = await getQuestion({});
-  console.log(result.questions);
+
   // const questions = [
   //   {
   //     _id: "1",
