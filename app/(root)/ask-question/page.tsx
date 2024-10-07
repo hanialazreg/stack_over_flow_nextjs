@@ -6,9 +6,11 @@ import { auth } from "@clerk/nextjs/server";
 const AskQuestion = async () => {
   const { userId } = auth();
 
+  console.log(userId);
   if (!userId) {
     redirect("/sign-in");
   }
+  // const userId = "user_2mzXdqozt4Bhj5rrfMsqsPjchV4";
 
   const mongoUser = await getUserById({ userId });
   const mongoUserId = mongoUser?._id ? mongoUser._id.toString() : "";
