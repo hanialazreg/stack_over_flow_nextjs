@@ -11,43 +11,6 @@ import { getQuestion } from "@/lib/actions/question.action";
 export default async function Home() {
   const result = await getQuestion({});
 
-  // const questions = [
-  //   {
-  //     _id: "1",
-  //     title: "Cascading delete in SQLAlchemy?",
-  //     tags: [
-  //       { _id: "1", name: "Python" },
-  //       { _id: "2", name: "React" },
-  //     ],
-  //     author: {
-  //       _id: "1",
-  //       name: "Joe Dow",
-  //       picture: "https://example.com/picture1.jpg",
-  //     },
-  //     upvotes: 20,
-  //     views: 100,
-  //     answers: [],
-  //     createdAt: new Date("2021-07-11T12:00:00.000Z"),
-  //   },
-  //   {
-  //     _id: "2",
-  //     title: "How to center a div?",
-  //     tags: [
-  //       { _id: "1", name: "Python" },
-  //       { _id: "2", name: "React" },
-  //     ],
-  //     author: {
-  //       _id: "1",
-  //       name: "Joe Dow",
-  //       picture: "https://example.com/picture1.jpg",
-  //     },
-  //     upvotes: 20,
-  //     views: 100,
-  //     answers: [],
-  //     createdAt: new Date("2021-07-11T12:00:00.000Z"),
-  //   },
-  // ];
-
   return (
     <>
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row ">
@@ -55,7 +18,7 @@ export default async function Home() {
 
         <Link href="/ask-question">
           <Button className=" primary-gradient min-h-[46px] px-4 py-3 !text-light-900">
-            As a Question
+            Ask a Question
           </Button>
         </Link>
       </div>
