@@ -4,7 +4,7 @@ import { model, models, Schema, Document } from "mongoose";
 export interface IQuestion extends Document {
   title: string;
   content: string;
-  tags: Schema.Types.ObjectId;
+  tags: Schema.Types.ObjectId[];
   views: number;
   upvotes: Schema.Types.ObjectId[];
   dowvotes: Schema.Types.ObjectId[];
@@ -23,7 +23,7 @@ const QuestionSchema = new Schema({
   downvotes: [{ type: Schema.Types.ObjectId, ref: "User" }],
   author: { type: Schema.Types.ObjectId, ref: "User" },
   answers: [{ type: Schema.Types.ObjectId, ref: "Answer" }],
-  createdAt: { type: Date, default: Date.now() },
+  createdAt: { type: Date, default: Date.now },
 });
 
 // 3. convert the Schema to a model
